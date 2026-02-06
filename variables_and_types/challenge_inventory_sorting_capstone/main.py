@@ -2,14 +2,42 @@
 items = "Bubblegum, Chocolate, Pasta"
 categories = "Candy Aisle, Pasta Aisle"
 
-candy1 = "Bubblegum"
-candy2 = "Chocolate"
-dry_goods = "Pasta"
-category1 = "Candy Aisle"
-category2 = "Pasta Aisle"
+# Slicing
+candy1 = items[0:9]
+candy2 = items[11:20]
+dry_goods = items[22:27]
+category1 = categories[0:11]
+category2 = categories[13:24]
+
+# Pricing
 bubblegum_price = "$1.50"
-chocolate_price = "$2.00"
+chocolate_price = "#2.00"
 pasta_price = "$5.40"
-print(f"We have {candy1} for {bubblegum_price} in the {category1}.")
-print(f"We have {candy2} for {chocolate_price} in the {category1}.")
-print(f"We have {dry_goods} for {pasta_price} In The {category2}.")
+
+print("We Have " + candy1 + " For " + bubblegum_price + " In The " + category1)
+print("We Have " + candy2 + " For " + chocolate_price + " In The " + category1)
+print("We Have " + dry_goods + " For " + pasta_price + " In The " + category2)
+
+# Lists of items and categories for slicing
+items = "Bubblegum, Chocolate, Pasta"
+categories = "Candy Aisle, Pasta Aisle"
+
+# Slice the `items` string into individual items
+candy1 = items[:9] # Bubblegum
+candy2 = items[11:20] # Chocolate
+dry_goods = items[22:] # Pasta
+
+# Slice the `categories` string into individual categories
+category1 = categories[:11] # Candy Aisle
+category2 = categories[13:] # Pasta Aisle
+
+# Replace the blank placeholders (`___`) with the names of the variables 
+# to store the prices of each item
+bubblegum_price = "$1.50" # Bubblegum costs 1.50 dollars
+chocolate_price = "$2.00" # Chocolate costs 2.00 dollars
+pasta_price = "$5.40" # Pasta costs 5.40 dollars
+
+# Create print statements that combine the items, their prices, and categories 
+print("We have " + candy1 + " for " + bubblegum_price + " in the " + category1)
+print("We have " + candy2 + " for " + chocolate_price + " in the " + category1)
+print("We have " + dry_goods + " for " + pasta_price + " in the " + category2)
