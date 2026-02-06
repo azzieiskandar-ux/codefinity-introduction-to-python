@@ -8,3 +8,5 @@ bakery1 = grocery_items[ 12 : 17 ] # 'bread'
 
 # Use concatenation to create the output statement
 print("We have dairy and bakery items: " + dairy1 + ", " + dairy2 + ", and " + bakery1 + " in aisle 5")
+
+grocery_items
