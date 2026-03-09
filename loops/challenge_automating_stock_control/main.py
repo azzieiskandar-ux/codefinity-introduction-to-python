@@ -8,36 +8,26 @@ inventory = {
 
 discount_threshold = 100
 
-# Initialize the inventory dictionary with stock details
-inventory = {
-    "Bread": [30, 50, 10, False],   
-    "Eggs": [120, 200, 40, False],
-    "Milk": [60, 100, 20, False],
-    "Apples": [15, 50, 15, False]
-}
-
-discount_threshold = 100
-
 print("Processing started")
 
-# Use a for loop to go through each item in the inventory dictionary
-for item_name in inventory:
-    # Get current values from the list
-    # Index 0: stock, Index 1: minimum, Index 2: restock qty, Index 3: sale status
-    details = inventory[item_name]
+for item, details in inventory.items():
+    print(f"Processing {item}")
     
-    # Use a while loop to restock until at or above minimum
-    while details[0] < details[1]:
-        details[0] += details[2]
+    # Extract values for easier reading
+    current_stock = details[0]
+    min_stock = details[1]
+    restock_amount = details[2]
+    on_sale = details[3]
+
+    # Rule 2: The While Loop (Restocking)
+    while current_stock < min_stock:
+        current_stock = current_stock + restock_amount
     
-    # Update stock value in the dictionary
-    inventory[item_name][0] = details[0]
-    
-    # Check if stock exceeds threshold and item is not already on sale
-    if details[0] > discount_threshold and details[3] == False:
-        inventory[item_name][3] = True
-        
-    # Print processing line for each item
-    print(f"Processing {item_name}")
+    # Update the dictionary with the new stock
+    inventory[item][0] = current_stock
+
+    # Rule 3: The Discount Logic (if-and-not)
+    if current_stock > discount_threshold and not on_sale:
+        inventory[item][3] = True
 
 print("Processing completed")
